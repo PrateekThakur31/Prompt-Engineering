@@ -1,0 +1,70 @@
+Case Study: Building a Production-Ready Text-to-SQL AI System (2026)
+Selected real-world case: Galaksiya’s Data Agent, a 2026 Text-to-SQL system.
+
+A Text-to-SQL system allows people to ask questions about information stored in a database using ordinary language instead of writing SQL code. For example, a manager could ask, “What were our top five selling products last month?” and the AI would generate and run the appropriate database query.
+
+The case study below covers all six required points, including evidence, limitations, affected groups, and possible improvements.
+1. What problem was the system meant to solve, and for whom?
+The system was designed to make company data easier to access. Traditionally, employees who wanted information from a database needed to understand SQL or ask a data engineer to write a query.
+
+For example, a sales manager might ask, “Which products had the highest sales last month?” A Text-to-SQL AI agent can translate that question into SQL, run the query, and return the answer.
+
+Intended users:
+- Business managers and sales teams
+- Data analysts
+- Employees who do not know SQL
+- Organizations that want faster access to business information
+2. What technique did it use?
+The 2026 Galaksiya Data Agent used a combination of:
+- Deep learning and large language models (LLMs): Gemma 4 26B interprets natural-language questions and generates SQL.
+- Retrieval-augmented generation (RAG): Retrieves relevant database information before generating the query.
+- Schema linking: Identifies the tables and columns related to the user's question.
+- Validation and self-correction: Checks generated SQL and attempts to correct errors.
+- Database execution: Runs the validated query and returns the result in a readable format.
+It uses a multi-stage process rather than asking an AI model to generate SQL in one step. 
+Galaksiya
+
+3. What worked, with evidence or numbers?
+The company reported the following results:
+- The system achieved 88.15% Execution Accuracy using the Gemma 4 26B model.
+- It was tested on 2,147 questions from the Spider 1.0 benchmark.
+- Another tested model, GPT-OSS 20B, achieved 86.63%.
+- The system used retrieval, validation, and automatic correction to improve SQL generation.
+These results suggest that combining an AI model with database context and error checking can produce better results than relying on SQL generation alone. 
+Galaksiya
+
+
+Important: These are company-reported benchmark results, not independently verified measurements of accuracy across live customer databases.
+4. Where did it fall short, and why?
+Although the system performed well, it still had limitations:
+- Incorrect SQL queries: The AI could sometimes select the wrong table, column, or calculation.
+- Ambiguous questions: Questions such as “Show the best-performing products” may have different meanings.
+- Complex databases: Large databases with many tables and complicated relationships are harder to understand.
+- Benchmark limitations: The Spider 1.0 benchmark does not represent every difficulty found in real company databases.
+- Data privacy and security: Incorrect permissions could expose confidential business information.
+The company also identified errors involving unnecessary data-type conversions, case sensitivity, and overly complicated queries. 
+Galaksiya
+
+5. Who benefited, who was harmed or left out?
+Who benefited?
+- Non-technical employees could access information without learning SQL.
+- Managers could get business information more quickly.
+- Data analysts and engineers could spend less time answering routine database questions.
+- Companies could make decisions using data more easily.
+Who could be harmed or left out?
+- Employees could make wrong decisions if they trust an incorrect AI-generated answer.
+- People whose personal information is stored in company databases could face privacy risks.
+- Small organizations might not have the resources or technical skills to implement such systems.
+- Employees with limited digital skills may find the system difficult to use.
+6. What would I do differently?
+If I were designing this system, I would make these improvements:
+1. Add human confirmation: Ask users to confirm important queries before execution.
+2. Improve security: Give the AI read-only database access wherever possible.
+3. Ask questions when unclear: If a user's request is ambiguous, the system should ask for clarification.
+4. Improve accuracy: Test the system using real company databases and different types of questions.
+5. Show explanations: Display the generated SQL query along with the answer so users can check how the result was obtained.
+6. Monitor performance: Regularly check errors, response time, and user feedback.
+Conclusion and personal takeaway
+This case study shows how Artificial Intelligence can make database access easier for people who do not know programming or SQL. The system demonstrates that combining large language models with retrieval, validation, and self-correction can improve the accuracy of generated SQL queries.
+
+My main takeaway is that AI should make work easier, but it should not be trusted blindly. A good AI system must be accurate, secure, transparent, and designed with human supervision.
